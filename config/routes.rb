@@ -1,5 +1,7 @@
 EticketApp::Application.routes.draw do
-  resources :users
+  resources :users  
+  resources :sessions, only: [:new, :create, :destroy]
+
   get "users/new"
 #  get "static_pages#..."
 #  get "static_pages#home"
@@ -12,8 +14,8 @@ root to: 'static_pages#home'
 match "help" => "static_pages#help", via: :get
 match "about" => "static_pages#about", via: :get
 match "signup" => "users#new", via: :get
-#match "signin" => "sessions#new", via: :get
-#match "signout" => "sessions#destroy", via: :delete
+match "signin" => "sessions#new", via: :get
+match "signout" => "sessions#destroy", via: :delete
 match "contact" => "static_pages#contact", via: :get
 #match "home" => "static_pages#home", via: :get
 
