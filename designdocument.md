@@ -86,7 +86,7 @@ class UsersController
 		@user = User.find([params[:id])	
 	end
 
-class TicketSearch
+class Ticket
 
 	def search
 		@ticket = Ticket.search(params[:id])
