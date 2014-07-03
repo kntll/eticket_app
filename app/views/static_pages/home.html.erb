@@ -4,15 +4,7 @@
       <section>
         <%= render 'shared/user_info' %>
       </section>
-      <section>
-        <%= render 'shared/micropost_form' %>
-      </section>
     </aside>
-  </div>
-   <div class="span8">
-      <h3>Micropost Feed</h3>
-      <%= render 'shared/feed' %>
-    </div>
   </div>
 <% else %>
   <div class="center hero-unit">
@@ -21,11 +13,12 @@
     <h2>
     	Get or sell your tickets here!
     </h2>
-
-  	<%= link_to "Search now!", '#', class: "btn btn-large btn-primary" %>
-    <%= link_to "Sign up now!", signup_path,
-                                class: "btn btn-large btn-primary" %>
+    <%= form_tag events_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:query] %>     
+        <%= submit_tag "Search now!", :name => nil %>
+        <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+      </p>
+    <% end%>
   </div>
-
-  <%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
-<% end %>
+<% end %>       

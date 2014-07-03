@@ -1,15 +1,18 @@
 EticketApp::Application.routes.draw do
+  resources :tickets do
+    post 'buy'
+  end
+
+  resources :events
+
   resources :users
   resources :sessions,   only: [:new, :create, :destroy]
-  resources :microposts, only: [:create, :destroy]
 
 
   get "users/new"
 #  get "static_pages#..."
 #  get "static_pages#home"
 #  get "static_pages#help"
-
-
 
 root to: 'static_pages#home'
 

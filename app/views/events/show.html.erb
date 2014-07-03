@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @event.venue %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @event.date %>
+</p>
+
+<% if @event.tickets.cout > 1 %>
+	<p>Er zijn <%= @event.tickets.count %> tickets beschikbaar</p>
+<% elsif @event.tickets.count = 1 %>
+	<p>Er is maar een ticket beschikbaar</p>
+<% else %>
+	<p>Er zijn geen tickets beschikbaar</p>
+<% end %>
+
+<hr>
+<ul>
+	<% @event.tickets.each do |ticket| %> 
+	<li><%= link_to "Ticket van #{ticket.user.email}", ticket %> </li>
+	<% end %>
+</ul>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
