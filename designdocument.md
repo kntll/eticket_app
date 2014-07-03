@@ -86,7 +86,7 @@ class UsersController
 		@user = User.find([params[:id])	
 	end
 
-class TicketSearch
+class Ticket
 
 	def search
 		@ticket = Ticket.search(params[:id])
@@ -108,7 +108,7 @@ Class Artists
 
 
 
-<img src= "https://f.cloud.github.com/assets/5379786/1179914/ad0b536a-21e2-11e3-87f9-544eb8726ac6.jpg">
+<img src= "">
 
 	</body>
 </html>
