@@ -1,6 +1,8 @@
 class TicketsController < ApplicationController
+  before_action :check_authorization
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy, :buy]
+  before_action :signed_in_user, except: [:index] 
+  #before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy, :buy]
 
   # GET /tickets
   # GET /tickets.json
@@ -20,6 +22,7 @@ class TicketsController < ApplicationController
 
   # GET /tickets/1/edit
   def edit
+    @ticket = Ticket.find(params[:id])
   end
 
   # POST /tickets
@@ -83,4 +86,8 @@ class TicketsController < ApplicationController
     def ticket_params
       params.require(:ticket).permit(:pdf, :price, :event_id)
     end
+
+    def check_authorization
+      raise User::NotAuthorized unless @ticket.user == current_user
+  end
 end

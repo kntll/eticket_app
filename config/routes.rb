@@ -1,6 +1,7 @@
 EticketApp::Application.routes.draw do
   resources :tickets do
     post 'buy'
+  
   end
 
   resources :events

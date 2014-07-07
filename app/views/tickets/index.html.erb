@@ -19,8 +19,12 @@
         <td><%= ticket.user_id %></td>
         <td><%= ticket.event_id %></td>
         <td><%= link_to 'Show', ticket %></td>
+      
+      <% if current_user.admin? && !current_user?(user) %>
+        
         <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
         <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Weet je dit zeker?' } %></td>
+      <% end %>
       </tr>
     <% end %>
   </tbody>

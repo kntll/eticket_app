@@ -5,9 +5,9 @@
   <%= @ticket.pdf %>
 </p>
 <div class="ticket">
-<%= image_tag @ticket.pdf_url.to_s %> 
+<%= link_to 'download ticket', @ticket.pdf_url.to_s %> 
 <p>
-  <strong>Price:</strong>
+  <strong>Price: </strong>€
   <%= @ticket.price %>
 </p>
 
