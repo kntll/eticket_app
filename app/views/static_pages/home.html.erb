@@ -4,20 +4,24 @@
       <section>
         <%= render 'shared/user_info' %>
       </section>
+        <%= form_tag events_path, :method => 'get' do %>
+        <%= text_field_tag :search, params[:query] %>     
+        <%= submit_tag "Zoek tickets!", :name => nil %>
+      <% end %>
     </aside>
   </div>
 <% else %>
   <div class="center hero-unit">
-    <h1>Welcome to the Eticket App</h1>
+    <h1>Welkom bij de Ticket App</h1>
 
     <h2>
-    	Get or sell your tickets here!
+    	Koop of verkoop jouw tickets voor evenementen hier!
     </h2>
     <%= form_tag events_path, :method => 'get' do %>
       <p>
         <%= text_field_tag :search, params[:query] %>     
-        <%= submit_tag "Search now!", :name => nil %>
-        <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+        <%= submit_tag "Zoek tickets!", :name => nil %>
+        <%= link_to "Registreer je nu!", signup_path, class: "btn btn-large btn-primary" %>
       </p>
     <% end%>
   </div>

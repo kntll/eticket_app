@@ -15,9 +15,9 @@
   <%= @event.date %>
 </p>
 
-<% if @event.tickets.cout > 1 %>
+<% if @event.tickets.count > 1 %>
 	<p>Er zijn <%= @event.tickets.count %> tickets beschikbaar</p>
-<% elsif @event.tickets.count = 1 %>
+<% elsif @event.tickets.count == 1 %>
 	<p>Er is maar een ticket beschikbaar</p>
 <% else %>
 	<p>Er zijn geen tickets beschikbaar</p>

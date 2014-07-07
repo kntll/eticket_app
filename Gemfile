@@ -51,7 +51,11 @@ gem 'turbolinks' , '1.1.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '1.0.2'
 
+# Creates annotations in the model controller file
 gem 'annotate'
+
+# To upload pdf files
+gem 'carrierwave'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

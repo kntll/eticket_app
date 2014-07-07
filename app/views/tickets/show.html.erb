@@ -4,7 +4,8 @@
   <strong>Pdf:</strong>
   <%= @ticket.pdf %>
 </p>
-
+<div class="ticket">
+<%= image_tag @ticket.pdf_url.to_s %> 
 <p>
   <strong>Price:</strong>
   <%= @ticket.price %>
@@ -20,7 +21,7 @@
   <%= @ticket.event.name %>
 </p>
 
-<%= button_to 'Buy ticket', ticket_buy_path(@ticket), {method: :post} %>
+<%= button_to 'Koop ticket', ticket_buy_path(@ticket), {method: :post} %>
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>
