@@ -10,10 +10,16 @@
   <%= @ticket.user.email %>
 </p>
 <div class="ticket">
-<%= link_to 'download ticket', @ticket.pdf_url.to_s %> 
-<p>
+	<% if @ticket.user == current_user %> 
+		<%= link_to 'download ticket', @ticket.pdf_url.to_s %> 
+	<% end %> 
+
+
+
 
 <%= button_to 'Koop ticket', ticket_buy_path(@ticket), {method: :post} %>
-
-<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<% if @ticket.user == current_user %> 
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> 
+<% end %>
+<br>
 <%= link_to 'Back', tickets_path %>

@@ -1,10 +1,7 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy, :buy]
+  before_action :signed_in_user, only: [:new, :edit, :create, :update, :buy, :destroy]
 
-
-  # GET /events
-  # GET /events.json
   def index
     if !params[:search]
       @events = Event.all
@@ -13,17 +10,13 @@ class EventsController < ApplicationController
     end
   end
 
-  # GET /events/1
-  # GET /events/1.json
   def show
   end
 
-  # GET /events/new
   def new
     @event = Event.new
   end
 
-  # GET /events/1/edit
   def edit
   end
 
@@ -32,8 +25,6 @@ class EventsController < ApplicationController
     Event.find(:all, :conditions => ["name LIKE ?", "%#{params[:query]}%"])
   end
 
-  # POST /events
-  # POST /events.json
   def create
     @event = Event.new(event_params)
 
@@ -48,8 +39,6 @@ class EventsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /events/1
-  # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
       if @event.update(event_params)

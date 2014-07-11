@@ -1,32 +1,23 @@
 class TicketsController < ApplicationController
-  before_action :check_authorization, only: [:edit, :destroy]
+  #before_action :check_authorization, only: [:edit, :destroy]
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
-  before_action :signed_in_user, except: [:index] 
-  #before_action :signed_in_user, only: [:new, :edit, :create, :update, :destroy, :buy]
+  before_action :signed_in_user, except: [:index, :edit] 
 
-  # GET /tickets
-  # GET /tickets.json
   def index
     @tickets = Ticket.all
   end
 
-  # GET /tickets/1
-  # GET /tickets/1.json
   def show
   end
 
-  # GET /tickets/new
   def new
     @ticket = Ticket.new
   end
 
-  # GET /tickets/1/edit
   def edit
     @ticket = Ticket.find(params[:id])
   end
 
-  # POST /tickets
-  # POST /tickets.json
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.user = current_user
@@ -42,8 +33,6 @@ class TicketsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tickets/1
-  # PATCH/PUT /tickets/1.json
   def update
     respond_to do |format|
       if @ticket.update(ticket_params)
@@ -56,8 +45,6 @@ class TicketsController < ApplicationController
     end
   end
 
-  # DELETE /tickets/1
-  # DELETE /tickets/1.json
   def destroy
     @ticket.destroy
     respond_to do |format|
@@ -77,17 +64,16 @@ class TicketsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_ticket
       @ticket = Ticket.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
       params.require(:ticket).permit(:pdf, :price, :event_id)
     end
 
-    def check_authorization
-      raise User::NotAuthorized unless @ticket.user == current_user
-    end
+    #doesn't work properly so I used statements in views. 
+    #def check_authorization
+     # raise not_authorized unless @ticket.user == current_user
+    #end
 end

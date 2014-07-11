@@ -1,3 +1,4 @@
+<% if false %>
 <% if signed_in? %>
   <div class="row">
     <aside class="span4">
@@ -6,10 +7,12 @@
       </section>
         <%= form_tag events_path, :method => 'get' do %>
         <%= text_field_tag :search, params[:query] %>     
-        <%= submit_tag "Zoek tickets!", :name => nil %>
+        <%= submit_tag "Zoek tickets!", :name => nil, class: "btn btn-default"%>
       <% end %>
     </aside>
   </div>
+<% end %>
+
 <% else %>
   <div class="center hero-unit">
     <h1>Welkom bij de Ticket App</h1>

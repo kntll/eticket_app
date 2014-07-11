@@ -15,7 +15,6 @@
 #
 
 class Ticket < ActiveRecord::Base
-	#attr_accessible :pdf 
 	belongs_to :user
 	belongs_to :event
 	mount_uploader :pdf, PdfUploader

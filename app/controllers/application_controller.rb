@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  rescue_from User::NotAuthorized, with: :user_not_authorized
+  rescue_from 'not_authorized', with: :user_not_authorized
 
   protect_from_forgery with: :exception
   include SessionsHelper

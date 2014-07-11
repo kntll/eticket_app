@@ -11,18 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.file_field :pdf %>
+<div class="row">
+  <div class="span6 offset3">
+    <div class="field">
+      <%= f.file_field :pdf %>
+    </div>
+    <div class="field">
+      <%= f.label :price %><br>
+      <%= f.text_field :price %>
+    </div>
+    <div class="field">
+      <%= f.label :event_id %><br>
+      <%= f.collection_select :event_id, Event.all, :id, :name %> of <%= link_to 'voeg eerst nieuw  evenement toe', new_event_path %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label :event_id %><br>
-    <%= f.collection_select :event_id, Event.all, :id, :name %> of <%= link_to 'voeg eerst nieuw evenement toe', new_event_path %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+</div>
 <% end %>

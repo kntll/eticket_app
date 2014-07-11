@@ -1,11 +1,9 @@
 EticketApp::Application.routes.draw do
   resources :tickets do
     post 'buy'
-  
   end
 
   resources :events
-
   resources :users
   resources :sessions,   only: [:new, :create, :destroy]
 
@@ -17,7 +15,7 @@ EticketApp::Application.routes.draw do
 
 root to: 'static_pages#home'
 
-match "help" => "static_pages#help", via: :get
+match "help" => "static_pages#contact", via: :get
 match "about" => "static_pages#about", via: :get
 match "signup" => "users#new", via: :get
 match "signin" => "sessions#new", via: :get
