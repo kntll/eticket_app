@@ -1,12 +1,11 @@
 <h1>Listing tickets</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
-      <th>Pdf</th>
+      <th>Event</th>
       <th>Prijs</th>
       <th>User</th>
-      <th>Event</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,12 +13,10 @@
   <tbody>
     <% @tickets.each do |ticket| %>
       <tr>
-        <td><%= ticket.pdf %></td>
-        <td><%= ticket.price %></td>
-        <td><%= ticket.user_id %></td>
-        <td><%= ticket.event_id %></td>
+        <td><%= ticket.event.name%></td>
+        <td>€<%= ticket.price %></td>
+        <td><%= ticket.user.name %></td>
         <td><%= link_to 'Show', ticket %></td>
-      
       <% if current_user.admin? && !current_user?(user) %>
         
         <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
@@ -31,5 +28,6 @@
 </table>
 
 <br>
-
-<%= link_to 'New Ticket', new_ticket_path %>
+<%= link_to 'Nieuw ticket toevoegen', new_ticket_path %>
+<br>
+<%= link_to 'Nieuw evenement toevoegen', new_event_path %>

@@ -20,8 +20,8 @@
     <%= form_tag events_path, :method => 'get' do %>
       <p>
         <%= text_field_tag :search, params[:query] %>     
-        <%= submit_tag "Zoek tickets!", :name => nil %>
-        <%= link_to "Registreer je nu!", signup_path, class: "btn btn-large btn-primary" %>
+        <%= submit_tag "Zoek tickets!", :name => nil, class: "btn btn-large btn-primary" %>
+        <%= link_to "Registreer je nu!", signup_path, class: "btn btn-default" %>
       </p>
     <% end%>
   </div>

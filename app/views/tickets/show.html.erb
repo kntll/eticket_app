@@ -1,25 +1,17 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Pdf:</strong>
-  <%= @ticket.pdf %>
-</p>
-<div class="ticket">
-<%= link_to 'download ticket', @ticket.pdf_url.to_s %> 
-<p>
+<h3>
+  <%= @ticket.event.name %>
+</h3>
   <strong>Price: </strong>€
   <%= @ticket.price %>
 </p>
-
 <p>
   <strong>User:</strong>
   <%= @ticket.user.email %>
 </p>
-
+<div class="ticket">
+<%= link_to 'download ticket', @ticket.pdf_url.to_s %> 
 <p>
-  <strong>Event:</strong>
-  <%= @ticket.event.name %>
-</p>
 
 <%= button_to 'Koop ticket', ticket_buy_path(@ticket), {method: :post} %>
 
